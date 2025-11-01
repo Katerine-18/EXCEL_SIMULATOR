@@ -1,0 +1,14 @@
+C:\Users\UserCP\Desktop\ProyectoTeoriaComputacion\EXCEL_SIMULATOR\bin\Debug\EXCEL_SIMULATOR.exe.config
+C:\Users\UserCP\Desktop\ProyectoTeoriaComputacion\EXCEL_SIMULATOR\bin\Debug\EXCEL_SIMULATOR.exe
+C:\Users\UserCP\Desktop\ProyectoTeoriaComputacion\EXCEL_SIMULATOR\bin\Debug\EXCEL_SIMULATOR.pdb
+C:\Users\UserCP\Desktop\ProyectoTeoriaComputacion\EXCEL_SIMULATOR\obj\Debug\EXCEL_SIMULATOR.csproj.AssemblyReference.cache
+C:\Users\UserCP\Desktop\ProyectoTeoriaComputacion\EXCEL_SIMULATOR\obj\Debug\EXCEL_SIMULATOR.Excel.resources
+C:\Users\UserCP\Desktop\ProyectoTeoriaComputacion\EXCEL_SIMULATOR\obj\Debug\EXCEL_SIMULATOR.Properties.Resources.resources
+C:\Users\UserCP\Desktop\ProyectoTeoriaComputacion\EXCEL_SIMULATOR\obj\Debug\EXCEL_SIMULATOR.csproj.GenerateResource.cache
+C:\Users\UserCP\Desktop\ProyectoTeoriaComputacion\EXCEL_SIMULATOR\obj\Debug\EXCEL_SIMULATOR.csproj.CoreCompileInputs.cache
+C:\Users\UserCP\Desktop\ProyectoTeoriaComputacion\EXCEL_SIMULATOR\obj\Debug\EXCEL_SIMULATOR.exe
+C:\Users\UserCP\Desktop\ProyectoTeoriaComputacion\EXCEL_SIMULATOR\obj\Debug\EXCEL_SIMULATOR.pdb
+C:\Users\UserCP\Desktop\ProyectoTeoriaComputacion\EXCEL_SIMULATOR\obj\Debug\EXCEL_SIMULATOR.exe.config
+C:\Users\UserCP\Desktop\ProyectoTeoriaComputacion\EXCEL_SIMULATOR\obj\Debug\EXCEL_SIMULATOR.FormVentana.resources
+C:\Users\UserCP\Desktop\ProyectoTeoriaComputacion\EXCEL_SIMULATOR\bin\Debug\System.Windows.Forms.Ribbon35.dll
+C:\Users\UserCP\Desktop\ProyectoTeoriaComputacion\EXCEL_SIMULATOR\obj\Debug\EXCEL_SI.33F0649C.Up2Date
