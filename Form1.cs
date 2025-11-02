@@ -1,8 +1,10 @@
-﻿using System;
+﻿using OfficeOpenXml;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +14,7 @@ namespace EXCEL_SIMULATOR
 {
     public partial class FormVentana : Form
     {
+        
         public FormVentana()
         {
             InitializeComponent();
@@ -132,7 +135,7 @@ namespace EXCEL_SIMULATOR
         private void dgvCeldas_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
-            { 
+            {
                 var cell = dgvCeldas.Rows[e.RowIndex].Cells[e.ColumnIndex];
                 string cellkey = $"{dgvCeldas.Columns[e.ColumnIndex].Name}{e.RowIndex + 1}";
                 string input = cell.Value?.ToString() ?? string.Empty;
@@ -152,7 +155,7 @@ namespace EXCEL_SIMULATOR
                 }
                 else
                 {
-                    if(formulas.ContainsKey(cellkey))
+                    if (formulas.ContainsKey(cellkey))
                         formulas.Remove(cellkey);
 
                 }
@@ -163,11 +166,36 @@ namespace EXCEL_SIMULATOR
 
 
         }
-        // Reemplazar 'DataGriedViewColumn' por 'DataGridViewColumn' y cerrar correctamente la clase FormVentana y el namespace
 
-        // ... (todo el código anterior permanece igual)
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Archivos Excel (*.xlsx)|*.xlsx";
+            saveFileDialog.Title = "Guardar archivo Excel";
+            saveFileDialog.FileName = "MiDocumento.xlsx";
 
-        //Creando metodo para evaluar formulas simples
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    GuardarExcel(saveFileDialog.FileName);
+                    MessageBox.Show("Archivo guardado exitosamente", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error al guardar: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+
+                }
+
+            }
+
+        }
+
+
+        //Creando metodos para evaluar formulas simples
+
         private double EvaluarFormula(string formula)
         {
             try
@@ -204,10 +232,47 @@ namespace EXCEL_SIMULATOR
             {
                 return 0;
             }
-        } 
+        }
+
+        private void GuardarExcel(string rutaArchivo)
+        {
+            
+
+            using (ExcelPackage package = new ExcelPackage())
+            {
+                ExcelWorksheet worksheet = package.Workbook.Worksheets.Add("Hoja1");
+
+                //Guardando encabezados de columna
+                for (int col = 0; col < dgvCeldas.Columns.Count; col++)
+                {
+                    worksheet.Cells[1, col + 1].Value = dgvCeldas.Columns[col].HeaderText;
+
+                }
+
+                //Guardando datos en las celdas
+                for (int row = 0; row < dgvCeldas.Rows.Count; row++)
+                {
+                    for (int col = 0; col < dgvCeldas.Columns.Count; col++)
+                    {
+                        var cellValue = dgvCeldas.Rows[row].Cells[col].Value;
+                        if (cellValue != null)
+                        {
+                            worksheet.Cells[row + 2, col + 1].Value = cellValue.ToString();
+
+                        }
+                    }
+                }
+
+                worksheet.Cells.AutoFitColumns();
+
+                //Archivo Guardado
+                FileInfo fileInfo = new FileInfo(rutaArchivo);
+                package.SaveAs(fileInfo);
+
+            }
+        }
 
     }
-
 } 
 
 
